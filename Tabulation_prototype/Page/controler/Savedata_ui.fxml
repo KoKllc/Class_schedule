@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="savedata_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="609.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tabulation_prototype.Page.controler.Savedata_uicontroler">
+   <children>
+      <VBox alignment="CENTER" layoutX="16.0" layoutY="11.0" prefHeight="298.0" prefWidth="577.0">
+         <children>
+            <ScrollPane prefHeight="286.0" prefWidth="578.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <content>
+                  <FlowPane fx:id="data_flowpane" columnHalignment="CENTER" hgap="27.0" onMouseClicked="#set_textField" prefHeight="239.0" prefWidth="562.0" />
+               </content>
+            </ScrollPane>
+            <HBox prefHeight="44.0" prefWidth="370.0">
+               <children>
+                  <Label text="檔名:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="4.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="dataname_textfield" prefHeight="31.0" prefWidth="362.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="save_button" mnemonicParsing="false" onMouseClicked="#save_dataname" style="-fx-background-radius: 10;" text="儲存">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="50.0" right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="load_button" mnemonicParsing="false" onMouseClicked="#load_dataname" style="-fx-background-radius: 10;" text="讀取">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>

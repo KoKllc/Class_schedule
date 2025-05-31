@@ -1,0 +1,6 @@
+,.txt
+ABC.txt
+ABC.txt.txt
+b.txt
+c.txt
+QQQ.txt

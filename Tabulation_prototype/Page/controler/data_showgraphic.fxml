@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="data_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="120.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tabulation_prototype.Page.controler.data_showgraphic_controler">
+   <children>
+      <ImageView fx:id="data_image" fitHeight="70.0" fitWidth="70.0" layoutX="25.0" layoutY="14.0" onMouseClicked="#select_target" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Img/edit.png" />
+         </image></ImageView>
+      <Label fx:id="data_label" layoutX="35.0" layoutY="96.0" text="Label">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

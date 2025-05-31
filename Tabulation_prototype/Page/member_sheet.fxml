@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pane_original" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#Move_Label_to_Gpane" prefHeight="756.0" prefWidth="1021.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tabulation_prototype.Page.controler.Membersheet_Controler">
+   <children>
+      <MenuBar prefHeight="26.0" prefWidth="1021.0">
+        <menus>
+          <Menu fx:id="Save_data" mnemonicParsing="false" text="檔案">
+            <items>
+              <MenuItem mnemonicParsing="false" text="讀寫檔案" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </MenuBar>
+      <HBox layoutY="26.0" prefHeight="498.0" prefWidth="1018.0">
+         <children>
+            <AnchorPane prefHeight="576.0" prefWidth="271.0">
+               <children>
+                  <TabPane fx:id="menu_tablepane" onMouseClicked="#Get_Label_inGpane" prefHeight="497.0" prefWidth="271.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="設置">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="242.0">
+                                 <children>
+                                    <VBox layoutX="20.0" layoutY="14.0" prefHeight="486.0" prefWidth="212.0">
+                                       <children>
+                                          <Label text="店名:">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="Choice_a_store" prefHeight="23.0" prefWidth="118.0" />
+                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                             <content>
+                                                <TableView fx:id="TBview_store_" prefHeight="195.0" prefWidth="208.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="TBcolumn_store_" prefWidth="99.19994050264359" text="C1" />
+                                                    <TableColumn fx:id="TBcolumn_number_" prefWidth="105.60002136230469" text="C2" />
+                                                  </columns>
+                                                </TableView>
+                                             </content>
+                                          </ScrollPane>
+                                          <Label text="日期(從何時開始?):">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="60.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <HBox prefHeight="35.0" prefWidth="182.0">
+                                             <children>
+                                                <TextField fx:id="Input_day_Field" onKeyPressed="#add_startday_keyversion" prefHeight="30.0" prefWidth="150.0" promptText="按下Enter輸入資料" />
+                                                <Button fx:id="Add_starday_button" mnemonicParsing="false" onMouseClicked="#add_startday" prefHeight="20.0" prefWidth="62.0" text="新增">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <CheckBox fx:id="mycheckbox" mnemonicParsing="false" text="2月是否有29天(有則打勾)">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <TextArea fx:id="prompt_text" prefHeight="61.0" prefWidth="202.0">
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                          </TextArea>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                      <Tab fx:id="tab01" text="成員">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox layoutX="-2.0" prefHeight="531.0" prefWidth="242.0">
+                                       <children>
+                                          <AnchorPane prefHeight="100.0" prefWidth="250.0">
+                                             <children>
+                                                <ChoiceBox fx:id="My_choicebox" layoutX="46.0" layoutY="38.0" prefWidth="150.0">
+                                                   <contextMenu>
+                                                      <ContextMenu>
+                                                        <items>
+                                                          <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                                        </items>
+                                                      </ContextMenu>
+                                                   </contextMenu></ChoiceBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <ScrollPane prefHeight="432.0" prefWidth="250.0">
+                                             <content>
+                                                <TableView fx:id="TBview_" editable="true" onMouseClicked="#Add_member_on_Gpane" prefHeight="430.0" prefWidth="240.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="TBcolumn_" prefWidth="236.8000369668007" text="C1" />
+                                                  </columns>
+                                                   <rotationAxis>
+                                                      <Point3D />
+                                                   </rotationAxis>
+                                                </TableView>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab fx:id="tab02" text="時段">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="498.0" prefWidth="250.0">
+                                       <children>
+                                          <AnchorPane prefHeight="100.0" prefWidth="250.0">
+                                             <children>
+                                                <Label text="時段:">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="10.0" top="5.0" />
+                                                   </padding>
+                                                </Label>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="250.0">
+                                                   <children>
+                                                      <TextField fx:id="text_input_item" onKeyPressed="#Add_your_time" prefHeight="35.0" prefWidth="232.0" promptText="按下Enter輸入資料">
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" top="15.0" />
+                                                         </HBox.margin>
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </TextField>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <ScrollPane prefHeight="398.0" prefWidth="250.0">
+                                             <content>
+                                                <GridPane fx:id="gridpane_list" alignment="CENTER" gridLinesVisible="true" prefHeight="14.0" prefWidth="240.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  </columnConstraints>
+                                                </GridPane>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+            <ScrollPane prefHeight="498.0" prefWidth="753.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="738.0">
+                     <children>
+                        <GridPane fx:id="gridpane_main" gridLinesVisible="true" layoutX="14.0" layoutY="117.0" minHeight="50.0" minWidth="691.0" onMouseClicked="#delect_remove_Button" prefHeight="40.0" prefWidth="691.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="117.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="243.20001220703125" minHeight="10.0" prefHeight="71.40000762939454" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="Day01" text="&quot;&quot;" GridPane.columnIndex="1">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Day02" text="&quot;&quot;" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Day03" text="&quot;&quot;" GridPane.columnIndex="3">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Day04" text="&quot;&quot;" GridPane.columnIndex="4">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Day05" text="&quot;&quot;" GridPane.columnIndex="5">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Day06" text="&quot;&quot;" GridPane.columnIndex="6">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Day07" text="&quot;&quot;" GridPane.columnIndex="7">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <Label layoutX="292.0" layoutY="14.0" text="排班表">
+                           <font>
+                              <Font size="45.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="23.0" text="店號:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="56.0" text="店名:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Store_NUM" layoutX="77.0" layoutY="23.0" prefHeight="27.0" prefWidth="100.0" text="?">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Store_NAM" layoutX="77.0" layoutY="56.0" prefHeight="27.0" prefWidth="100.0" text="?">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </HBox>
+      <ScrollPane hbarPolicy="NEVER" layoutX="271.0" layoutY="527.0" prefHeight="226.0" prefWidth="747.0">
+         <content>
+            <AnchorPane prefHeight="222.0" prefWidth="746.0">
+               <children>
+                  <FlowPane fx:id="Time_rectangle_sheet" layoutX="3.0" layoutY="2.0" prefHeight="218.0" prefWidth="738.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Button fx:id="Renew_button" layoutY="527.0" mnemonicParsing="false" onMouseClicked="#renew" prefHeight="36.0" prefWidth="271.0" text="更新" />
+   </children>
+</Pane>
