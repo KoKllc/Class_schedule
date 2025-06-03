@@ -4,54 +4,6 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        /*{
-            "type": "java",
-            "name": "Bar_test_M",
-            "request": "launch",
-            "mainClass": "Exercise08.Bar_test_M",
-            "projectName": "Codetest_4f18ab18",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-
-        },*/
-        {
-            "type": "java",
-            "name": "star",
-            "request": "launch",
-            "mainClass": "star",
-            "projectName": "Codetest_4f18ab18"
-        },
-        {
-            "type": "java",
-            "name": "codetest",
-            "request": "launch",
-            "mainClass": "Exercise08.codetest",
-            "projectName": "Codetest_4f18ab18",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        /*{
-            "type": "java",
-            "name": "Maintest",
-            "request": "launch",
-            "mainClass": "Exercise04.Maintest",
-            "projectName": "Codetest_4f18ab18",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },*/
-        {
-            "type": "java",
-            "name": "Main",
-            "request": "launch",
-            "mainClass": "Exercise02.Main",
-            "projectName": "Codetest_4f18ab18",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        /*{
-            "type": "java",
-            "name": "Main05",
-            "request": "launch",
-            "mainClass": "Exercise05.Main05",
-            "projectName": "Codetest_4f18ab18",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },*/
         {
             "type": "java",
             "name": "Main_data",
@@ -59,120 +11,12 @@
             "mainClass": "Tabulation_prototype.Main_data",
             "projectName": "Codetest_4f18ab18",
             "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        /*{
-            "type": "java",
-            "name": "testcode03",
-            "request": "launch",
-            "mainClass": "testcode03",
-            "projectName": "Codetest_4f18ab18"
-        },*/
-        /*{
-            "type": "java",
-            "name": "testcode02",
-            "request": "launch",
-            "mainClass": "testcode02",
-            "projectName": "Codetest_4f18ab18"
-        },*/
-        /*{
-            "type": "java",
-            "name": "gridpanetest_Main",
-            "request": "launch",
-            "mainClass": "Exercise06.gridpanetest_Main",
-            "projectName": "Codetest_4f18ab18",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },*/
-        /*{
-            "type": "java",
-            "name": "Node_move_Main",
-            "request": "launch",
-            "mainClass": "Exercise07.Node_move_Main",
-            "projectName": "Codetest_4f18ab18",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },*/
-        {
-            "type": "java",
-            "name": "main_controler",
-            "request": "launch",
-            "mainClass": "Tabulation_prototype.main_controler",
-            "projectName": "Codetest_4f18ab18",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        /*{
-            "type": "java",
-            "name": "Node_move_Main",
-            "request": "launch",
-            "mainClass": "Exercise07.Node_move_Main",
-            "projectName": "Codetest_c9019ff7",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },*/
-        /*{
-            "type": "java",
-            "name": "gridpanetest_Main",
-            "request": "launch",
-            "mainClass": "Exercise06.gridpanetest_Main",
-            "projectName": "Codetest_c9019ff7",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },*/
-        /*{
-            "type": "java",
-            "name": "Main05",
-            "request": "launch",
-            "mainClass": "Exercise05.Main05",
-            "projectName": "Codetest_c9019ff7",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },*/
-        /*{
-            "type": "java",
-            "name": "Maintest",
-            "request": "launch",
-            "mainClass": "Exercise04.Maintest",
-            "projectName": "Codetest_c9019ff7",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },*/
-        {
-            "type": "java",
-            "name": "Main",
-            "request": "launch",
-            "mainClass": "Exercise02.Main",
-            "projectName": "Codetest_c9019ff7",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        /*{
-            "type": "java",
-            "name": "Scenecontroler01_ex02",
-            "request": "launch",
-            "mainClass": "Exercise02.Scenecontroler01_ex02",
-            "projectName": "Codetest_c9019ff7"
-        },*/
-        /*{
-            "type": "java",
-            "name": "testcode03",
-            "request": "launch",
-            "mainClass": "testcode03",
-            "projectName": "Codetest_c9019ff7",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },*/
+        },  
         {
             "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
         },
-        {
-            "type": "java",
-            "name": "star",
-            "request": "launch",
-            "mainClass": "star",
-            "projectName": "Codetest_c9019ff7"
-        },
-        /*{
-            "type": "java",
-            "name": "testcode02",
-            "request": "launch",
-            "mainClass": "testcode02",
-            "projectName": "Codetest_c9019ff7",
-            "vmArgs": "--module-path \"C:/Development_kit/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        }*/
     ]
 }

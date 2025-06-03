@@ -1,0 +1,1 @@
+javaw --module-path C:\Development_kit\javafx-sdk-23.0.1\lib --add-modules ALL-MODULE-PATH -jar "C:\Users\user\OneDrive\Desktop\Codetest\Codetest.jar"
