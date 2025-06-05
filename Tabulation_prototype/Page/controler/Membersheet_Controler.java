@@ -814,6 +814,7 @@ public class Membersheet_Controler implements Initializable{
 
     @FXML
     void renew(MouseEvent event){       //更新長條圖
+        pane_original.getChildren().remove(Button_FOR_Delete);
         Show_rectangle();
     }
 
@@ -1075,14 +1076,16 @@ public class Membersheet_Controler implements Initializable{
 
             for(int P_index = 0; P_index < arranged_gridpane_main.size(); P_index++){       //讀寫時間段
                 //System.out.println(arranged_gridpane_main.get(P_index)+"<><<");
-                if (arranged_gridpane_main.get(P_index).equals(" Pane")) {         //時間段來自於Pane的id
+                if (arranged_gridpane_main.get(P_index).equals(" Pane")) {         //時間段來自於Pane的id                    
                     //System.out.println("hello!!!");
                     arranged_gridpane_main.add(P_index + 1,"space01");              //因應後面的處理邏輯(除3以後餘為0的,會被抓起來)
-                    arranged_gridpane_main.add(P_index + 2,"space02");              //Label,id,_REST_,styleclass,label,休假(他有5個,所以要再幫Pane補2個)
+                    arranged_gridpane_main.add(P_index + 2, "space02");              //Label,id,_REST_,styleclass,label,休假(他有5個,所以要再幫Pane補2個)  
 
                     String adjust_symbol = arranged_gridpane_main.get(P_index + 4).replace("|", ",");
-                    String[] adjust_name = adjust_symbol.split(",");    
+                    String[] adjust_name = adjust_symbol.split(","); 
 
+                    arranged_gridpane_main.set(P_index + 2, adjust_name[0] + "|"+ P_index);              //把text設置成id名稱，並加上( | 符號 及 數字 )作為長條圖的辨識特徵--->today_time.length == 3
+                                           
                     if ((P_index + 5) < arranged_gridpane_main.size()) {
                         arranged_gridpane_main.set(P_index + 5, adjust_name[0].toString());    //補完後會有空字串佔位然後就顯示空白(故又把時段的id,重新調整再補上)
                     }
@@ -1141,10 +1144,9 @@ public class Membersheet_Controler implements Initializable{
             stage.setTitle("編輯檔案");
             stage.initModality(Modality.APPLICATION_MODAL);     //當關閉這個視窗時才能點前一個視窗                            
                                     
-            stage.addEventHandler(ActionEvent.ANY, new EventHandler<ActionEvent>() {        //當點擊存檔或讀檔時關閉視窗
+            stage.addEventHandler(ActionEvent.ANY, new EventHandler<ActionEvent>() {        //當點擊存檔或讀檔時
                 public void handle(ActionEvent event){
                     //System.out.println(event.getTarget()+"<<--event target");                    
-                    M_elements.clear();
 
                     if (Select_dataname_location == null) {
                         Select_dataname_location = Paths.get(Datanamelist_location.toString()).getParent();
@@ -1169,11 +1171,13 @@ public class Membersheet_Controler implements Initializable{
 
                     if (event.getTarget().toString().equals("Button[id=save_button, styleClass=button]'儲存'")) {                        
                         System.out.println("儲存");
-                        
-                        
+                                                
                     }
                     else if (event.getTarget().toString().equals("Button[id=load_button, styleClass=button]'讀取'")) {
                         System.out.println("讀取");
+
+                        M_elements.clear();
+
                         if (Datasave_location == null) {
                             Datasave_location = Paths.get(Save_point_location.reset_a_Path());
                         }                        
@@ -1237,30 +1241,43 @@ public class Membersheet_Controler implements Initializable{
                             }
 
                             for (int i = 1; i <= (elements_list.size()-14)/2; i++) {            //扣掉日期的7天不算(14 = id + 名字 的總和)
-                                Member_load_label = new Label(elements_list.get(13 + i*2));     //獲取element_list的成員,從第15個開始(從0開始算)
+                                /*Member_load_label = new Label(elements_list.get(13 + i*2));     //獲取element_list的成員,從第15個開始(從0開始算)
                                 Member_load_label.setId(elements_list.get(12 + i*2));
                                 Member_load_label.setFont(new Font(20));
-                                Member_load_label.setPadding(new Insets(11.25));               //設置空白填充
+                                Member_load_label.setPadding(new Insets(11.25));               //設置空白填充     */                          
                                 
-                                if (k == 1 && j == 0) {                                   
-                                    M_elements.add(elements_list.get(13 + i*2));
+                                try {
+                                    FXMLLoader Label_fxml = new FXMLLoader();
+                                    Label_fxml.setLocation(getClass().getResource("Label_.fxml"));
+                                    Pane pane_of_Label = Label_fxml.load();
+                                    show_Labelcontroler show_the_Label_in_Gpane = Label_fxml.getController();
+                                    show_the_Label_in_Gpane.set_a_Name(elements_list.get(13 + i*2) + "|" + i);                                
 
-                                }
-                                if (j > 7) {            //一列有8個，超過就換下一列
-                                    j = 0;
-                                    k += 1;
-                                    M_elements.add(elements_list.get(13 + i*2));
+                                    if (k == 1 && j == 0) {                                   
+                                        M_elements.add(elements_list.get(13 + i*2));
+
+                                    }
+                                    if (j > 7) {            //一列有8個，超過就換下一列
+                                        j = 0;
+                                        k += 1;
+                                        M_elements.add(elements_list.get(13 + i*2));
+                                        
+                                    }                                
                                     
-                                }
-                                
-                                
-                                gridpane_main.setColumnIndex(Member_load_label,j);
-                                gridpane_main.setRowIndex(Member_load_label,k);
-                                gridpane_main.getChildren().addAll(Member_load_label);
-                        
-                                j += 1;
-                            }
+                                    gridpane_main.setColumnIndex(pane_of_Label,j);
+                                    gridpane_main.setRowIndex(pane_of_Label,k);
+                                    gridpane_main.getChildren().addAll(pane_of_Label);
                             
+                                    j += 1;
+
+                                } catch (IOException e) {
+                                    // TODO Auto-generated catch block
+                                    e.printStackTrace();
+                                }
+
+                                
+                                
+                            }                            
                         }                                                
                     }
                 }
@@ -1293,12 +1310,11 @@ public class Membersheet_Controler implements Initializable{
         
         for (int row_y = 1; row_y < 8; row_y++) {            //不同成員在同一天的時段分配(星期一 ---> 星期日)
             int[] T_number = new int[M_elements.size()];      //(尾)
-            int[] H_number = new int[M_elements.size()];      //(頭)第n天的時段,頭的地方,尾<->頭                     
-
+            int[] H_number = new int[M_elements.size()];      //(頭)第n天的時段,頭的地方,尾<->頭                         
             //ArrayList Head_overlap_num = new ArrayList<>();
             //int Overlap_number = 0;
 
-            for (int col_x = 1; col_x < M_elements.size() + 1; col_x++) {                
+            for (int col_x = 1; col_x < M_elements.size() + 1; col_x++) {                                
                 //System.out.println("M:_"+gridpane_main.getChildren().get(col_x * 8 + row_y).getId().replace("-",",").replace("|", ","));
                 
                 String time_period = gridpane_main.getChildren().get(col_x * 8 + row_y).getId().replace("-",",").replace("|", ",");                                
@@ -1307,17 +1323,19 @@ public class Membersheet_Controler implements Initializable{
                 
                 //如果輸入的是時段的話
                 if (today_time.length == 3) {
+                    //System.out.println("時段");  
                     int Tail_num = Integer.parseInt(today_time[0]);     //(尾部)
                     int Head_num = Integer.parseInt(today_time[1]);     //把取得的字串資料轉為整數(頭部)                                                                            
                 
                     T_number[col_x - 1] = Tail_num;
-                    H_number[col_x - 1] = Head_num;
+                    H_number[col_x - 1] = Head_num;                    
                 }
 
                 //如果輸入的是其他文字註記
                 else{
+                    //System.out.println("其他");  
                     T_number[col_x - 1] = -1;
-                    H_number[col_x - 1] = -1;
+                    H_number[col_x - 1] = -1;                    
                 }                
             }
             All_T[row_y - 1] = T_number;    //每一天不同的成員的擁有的時段(尾部)
@@ -1500,7 +1518,7 @@ public class Membersheet_Controler implements Initializable{
         }
         
 
-        for (int num02 = 0; num02 < 7; num02++) {
+        /*for (int num02 = 0; num02 < 7; num02++) {
             for (int num03 = 0; num03 < M_elements.size(); num03++) {
                 System.out.println(all_T_overlap[num02][num03]+"<<-尾_"+num03);
             }
@@ -1509,7 +1527,7 @@ public class Membersheet_Controler implements Initializable{
             for (int num03 = 0; num03 < M_elements.size(); num03++) {
                 System.out.println(all_H_overlap[num02][num03]+"<<-頭_"+num03);
             }
-        }
+        }*/
 
 
         for (int index = 0; index < Days_collect.size(); index++) {            //載入直條圖
